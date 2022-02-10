@@ -1,0 +1,29 @@
+.item {
+    display: grid;
+    grid-template-areas:
+            "a t t"
+            "a l l";
+    grid-template-columns:50px 1fr ;
+    color: #000000;
+
+}
+.item:hover {
+    background: #ffffff;
+    transition: 0.5s;
+}
+.item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.itemAvatar {
+    grid-area: a;
+}
+
+.itemText {
+    grid-area: t;
+}
+
+.itemLike {
+    grid-area: l;
+}

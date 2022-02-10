@@ -1,0 +1,43 @@
+button {
+    display: inline-block;
+    background: rgba(241, 187, 187, 0.2);
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    user-select: none;
+    padding: .5em 2em;
+    outline: none;
+    border: 2px solid;
+    border-radius: 1px;
+    transition: 0.2s;
+}
+button:hover {
+    background: rgba(138, 138, 138, 0.2);
+}
+button:active {
+    background: white;
+    color: #dde2fa;
+
+}
+textarea {
+    display: inline-block;
+    background: rgba(241, 187, 187, 0.2);
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    user-select: none;
+    padding: .5em 2em;
+    outline: none;
+    border: 2px solid;
+    border-radius: 1px;
+    transition: 0.2s;
+}
+
+textarea:hover {
+    background: rgba(138, 138, 138, 0.2);
+}
+textarea:active {
+    background: white;
+    color: #dde2fa;
+
+}
