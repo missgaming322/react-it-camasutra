@@ -10,7 +10,6 @@ const Post = (props) => {
     }
 
     return (
-
         <div className={s.item}>
             <div className={s.itemAvatar}>
                 <img src="https://i.ytimg.com/vi/Dk54NG-7B7A/hqdefault.jpg" alt=""/>
