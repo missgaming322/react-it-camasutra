@@ -1,12 +1,14 @@
 import React, {createRef} from "react";
 import s from "./Post.module.css";
-import {deletePost} from "../../../../redux/state";
+import {deletePostActionCreator} from "../../../../redux/state";
+
+
 
 const Post = (props) => {
     let deletePostButton = createRef();
     let passButtonId = () => {
         let deleteId = deletePostButton.current.id
-        deletePost(deleteId)
+        props.dispatch(deletePostActionCreator(deleteId));
     }
 
     return (
