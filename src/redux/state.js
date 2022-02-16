@@ -1,3 +1,7 @@
+const addPost = "ADD-POST"
+const updateNewPostText = "UPDATE-NEW-POST-TEXT"
+const deletePost = "DELETE-POST"
+
 let store = {
     _state: {
         profilePage: {
@@ -42,7 +46,7 @@ let store = {
 
 
     dispatch(action) {
-        if (action.type === "ADD-POST") {
+        if (action.type === addPost) {
             let newPost = {
                 id: this._state.profilePage.posts.length + 1,
                 message: this._state.profilePage.newPostText,
@@ -56,10 +60,10 @@ let store = {
                 this._callSubscriber(this._state)
                 this._state.profilePage.newPostText = ('')
             }
-        } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+        } else if (action.type === updateNewPostText) {
             this._state.profilePage.newPostText = action.textareaValue
             this._callSubscriber(this._state)
-        } else if (action.type === "DELETE-POST") {
+        } else if (action.type === deletePost) {
             this._state.profilePage.posts.splice(action.deleteId - 1, 1)
             this._callSubscriber(this._state)
 

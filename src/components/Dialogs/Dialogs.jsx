@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import s from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem"
 import Message from "./Message/Message";
@@ -31,7 +31,9 @@ const Dialogs = (props) => {
                 {Messages}
             </div>
             <div>
-            <textarea ref={messageElemnt}f></textarea>
+            <textarea
+                ref={messageElemnt}
+            value={'присвоить значение приходящее по пропсам из state'}/>
             <button onClick={sendMessage}>Send message</button>
             </div>
         </div>
