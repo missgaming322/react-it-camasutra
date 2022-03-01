@@ -1,6 +1,6 @@
 import React, {createRef} from "react";
 import s from "./Post.module.css";
-import {deletePostActionCreator} from "../../../../redux/state";
+import {deletePostActionCreator} from "../../../../redux/store";
 
 
 

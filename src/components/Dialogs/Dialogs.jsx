@@ -1,26 +1,26 @@
-import React from "react";
+import React, {useEffect} from "react";
 import s from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem"
 import Message from "./Message/Message";
 
 
 
-
-
 const Dialogs = (props) => {
-
-
     let dialogsElements =
-        props.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
+        props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
 
     let Messages =
-        props.messages.map(m => <Message message={m.message}/>);
+        props.dialogsPage.messages.map(m => <Message message={m.message}/>);
 
-    let messageElemnt = React.createRef();
-    let sendMessage = ()=> {
-       let text = messageElemnt.current.value;
-        alert(text);
+    //для изменения текстового поля.
+    let messageElement = React.createRef();
+    let onChangeMessage = ()=> {
+       let messageValue = messageElement.current.value
+       props.onChangeMessage(messageValue)
     }
+    // для вывода сообщения
+    let onSendMessage = () => props.onSendMessage()
+
 
     return (
         <div className={s.dialogs}>
@@ -32,9 +32,10 @@ const Dialogs = (props) => {
             </div>
             <div>
             <textarea
-                ref={messageElemnt}
-            value={'присвоить значение приходящее по пропсам из state'}/>
-            <button onClick={sendMessage}>Send message</button>
+                onChange={onChangeMessage}
+                ref={messageElement}
+                value={props.dialogsPage.newMessageText}/>
+            <button onClick={onSendMessage}>Send message</button>
             </div>
         </div>
     );
