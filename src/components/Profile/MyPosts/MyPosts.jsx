@@ -6,7 +6,11 @@ import Post from "./Post/Post1.jsx";
 
 const MyPosts = (props) => {
     let PostElements =
-        props.profilePage.posts.map(p => <Post  message={p.message} number={p.number} id={p.id} dispatch={props.dispatch}/>);
+        props.profilePage.posts.map(p => <Post  message={p.message}
+                                                number={p.number}
+                                                id={p.id}
+                                                key={p.id}
+                                                dispatch={props.dispatch}/>);
 
     let newPostElement = React.createRef();
 

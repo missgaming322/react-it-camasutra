@@ -14,6 +14,9 @@ const Navbar = () => {
                 <Link to="dialog">Dialogs</Link>
             </div>
             <div>
+                <Link to="users">Users</Link>
+            </div>
+            <div>
                 <a href="#s">News</a>
             </div>
             <div>

@@ -7,10 +7,12 @@ import Message from "./Message/Message";
 
 const Dialogs = (props) => {
     let dialogsElements =
-        props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
+        props.dialogsPage.dialogs.map(d => <DialogItem name={d.name}
+                                                       id={d.id}
+                                                       key={d.id}/>);
 
     let Messages =
-        props.dialogsPage.messages.map(m => <Message message={m.message}/>);
+        props.dialogsPage.messages.map(m => <Message message={m.message} key={m.id}/>);
 
     //для изменения текстового поля.
     let messageElement = React.createRef();

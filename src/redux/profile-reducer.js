@@ -3,7 +3,6 @@ const updateNewPostText = "UPDATE-NEW-POST-TEXT"
 const deletePost = "DELETE-POST"
 
 let initialState = {
-    profilePage: {
         posts: [
             {id: 1, message: 'Hello', number: 33},
             {id: 2, message: 'Moy previ trek', number: 4},
@@ -12,26 +11,33 @@ let initialState = {
             {id: 5, message: 'Bla Bla', number: 1},
 
         ],
-        newPostText: '',
-    },
-}
+        newPostText: ''
+    }
 
 const profileReducer = (state = initialState, action) => {
-    if (action.type === addPost) {
-        if (state.profilePage.newPostText.trim() === '') return
-        let newPost = {
-            id: state.profilePage.posts.length + 1,
-            message: state.profilePage.newPostText,
-            number: 0,
+    let stateCopy;
+    switch (action.type) {
+        case addPost: {
+            debugger
+            if (state.newPostText.trim() === '') return state
+            let newPost = {
+                id: state.posts.length + 1,
+                message: state.newPostText,
+                number: 0,
+            }
+            stateCopy = {...state, posts: [...state.posts, newPost], newPostText: ''}
+            return stateCopy
         }
-        state.profilePage.posts.push(newPost)
-        state.profilePage.newPostText = ('')
-
-    } else if (action.type === updateNewPostText) {
-        state.profilePage.newPostText = action.textareaValue
-    } else if (action.type === deletePost) {
-        state.profilePage.posts.splice(action.deleteId - 1, 1)
+        case updateNewPostText: {
+            stateCopy = {...state, newPostText: action.textareaValue}
+            return stateCopy
+        }
+        // case deletePost:
+        //     state.posts.splice(action.deleteId - 1, 1)
+        //     break;
+        default :
+            return state
     }
-    return state
+
 }
 export default profileReducer;
